@@ -31,6 +31,13 @@ export default new Vuex.Store({
             state.isLogged = true
         },
 
+        LOGOFF: state => {
+            state.idUser = ''
+            state.tokenUser = ''
+            state.isLogged = false
+
+        },
+
         add(state, iden, tit, sorc) {
             state.cards.push({ id: iden, title: tit, src: sorc })
         }

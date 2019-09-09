@@ -7,7 +7,7 @@
       <v-spacer></v-spacer>
       <v-btn text to="/signin" v-if="!getIsLogged">Entrar</v-btn>
       <v-btn light to="/signup" v-if="!getIsLogged">Criar Conta</v-btn>
-      <v-btn light to="/signup" v-if="getIsLogged">Sair</v-btn>
+      <v-btn light to="/signin" v-if="getIsLogged">Sair</v-btn>
       <v-btn text to="/">Contato</v-btn>
     </v-app-bar>
   </div>
