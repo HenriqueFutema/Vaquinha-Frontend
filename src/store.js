@@ -12,12 +12,14 @@ export default new Vuex.Store({
             { id: 2, title: 'Salvando Cachorros', src: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Sad-pug.jpg' },
             { id: 3, title: 'Ajude um brasileiro ir para Harvard', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Harvard_University_Widener_Library.jpg/800px-Harvard_University_Widener_Library.jpg' },
         ],
+        isLogged: false
     },
     mutations: {
 
         SAVE_LOGIN: (state, data) => {
             state.idUser = data.user._id
             state.tokenUser = data.token
+            state.isLogged = true
         },
 
         add(state, iden, tit, sorc) {
