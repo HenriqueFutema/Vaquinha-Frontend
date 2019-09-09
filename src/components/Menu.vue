@@ -7,7 +7,7 @@
       <v-spacer></v-spacer>
       <v-btn text to="/signin" v-if="!getIsLogged">Entrar</v-btn>
       <v-btn light to="/signup" v-if="!getIsLogged">Criar Conta</v-btn>
-      <v-btn light to="/signin" v-if="getIsLogged">Sair</v-btn>
+      <v-btn light to="/signin" v-if="getIsLogged" @click="logoff">Sair</v-btn>
       <v-btn text to="/">Contato</v-btn>
     </v-app-bar>
   </div>
@@ -21,11 +21,18 @@
 </style>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["getIsLogged"])
+    ...mapGetters(["getIsLogged"]),
+    ...mapMutations(["LOGOFF"])
+  },
+
+  methods: {
+    logoff: function() {
+      this.LOGOFF;
+    }
   }
 };
 </script>
