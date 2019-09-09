@@ -14,6 +14,15 @@ export default new Vuex.Store({
         ],
         isLogged: false
     },
+
+    getters: {
+
+        getIsLogged: state => {
+            return state.isLogged
+        }
+
+    },
+
     mutations: {
 
         SAVE_LOGIN: (state, data) => {
