@@ -57,14 +57,20 @@
 </template>
 
 <script>
-import api from '@/services/api'
-import { mapState } from "vuex";
+import api from "@/services/api";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   computed: {
     ...mapState({
       cards: state => state.cards
-    })
+    }),
+    ...mapGetters(["getTokenUser"])
+  },
+  created: async function() {
+    const projects = await api.get("/projects");
+
+    console.log(projects);
   }
 };
 </script>
