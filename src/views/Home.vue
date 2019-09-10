@@ -21,12 +21,12 @@
         <v-col cols="4" v-for="card in cards" :key="card.title">
           <v-card>
             <v-img
-              :src="card.src"
+              :src="`http://localhost:3333/files/${card.images[0]}`"
               class="white--text"
               height="200px"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             >
-              <v-card-title class="fill-height align-end" v-text="card.title"></v-card-title>
+              <v-card-title class="fill-height align-end" v-text="card.nameProject"></v-card-title>
             </v-img>
 
             <v-card-actions>
@@ -62,15 +62,19 @@ import { mapState, mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapState({
-      cards: state => state.cards
-    }),
     ...mapGetters(["getTokenUser"])
   },
+
+  data: () => ({
+    cards: []
+  }),
+
   created: async function() {
     const projects = await api.get("/projects");
 
-    console.log(projects);
+    console.log(projects.data.docs);
+
+    this.cards = projects.data.docs;
   }
 };
 </script>
