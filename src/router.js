@@ -7,6 +7,7 @@ import Home from './views/Home.vue'
 import ProjectSearch from './views/ProjectSearch.vue'
 import Project from './views/Project.vue'
 import Card from './views/Card.vue'
+import Perfil from './views/Perfil.vue'
 
 
 Vue.use(Router)
@@ -26,6 +27,11 @@ export default new Router({
             path: '/',
             name: 'home',
             component: Home
+        },
+        {
+            path: '/perfil',
+            name: 'perfil',
+            component: Perfil
         },
         {
             path: '/about',
