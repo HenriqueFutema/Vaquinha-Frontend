@@ -22,6 +22,10 @@ export default new Vuex.Store({
             return state.isLogged
         },
 
+        getDetailsUser: state => {
+            return state.detailsUser
+        },
+
         getTokenUser: state => {
             return state.tokenUser
         }
