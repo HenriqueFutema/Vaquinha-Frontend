@@ -7,6 +7,7 @@ export default new Vuex.Store({
     state: {
         idUser: '',
         tokenUser: '',
+        detailsUser: {},
         cards: [
             { id: 1, title: 'Palhaços para Ajudar Doentes', desc: '', src: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Palha%C3%A7os_da_Ong.jpg' },
             { id: 2, title: 'Salvando Cachorros', src: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Sad-pug.jpg' },
@@ -32,6 +33,10 @@ export default new Vuex.Store({
         SAVE_LOGIN: (state, data) => {
             state.idUser = data.user._id
             state.tokenUser = data.token
+            state.detailsUser = {
+                'email': data.user.email,
+                'name': data.user.name
+            }
             state.isLogged = true
         },
 

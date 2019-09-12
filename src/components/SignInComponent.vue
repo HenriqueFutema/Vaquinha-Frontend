@@ -83,6 +83,8 @@ export default {
         .then(function(response) {
           swal("Bem vindo", "Aproveite a plataforma", "success");
           that.SAVE_LOGIN(response.data);
+          console.log(response.data);
+
           that.$router.push("/");
         })
         .catch(function(error) {
