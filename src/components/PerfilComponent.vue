@@ -8,8 +8,8 @@
               <img src="https://vuetifyjs.com/apple-touch-icon-180x180.png" alt="avatar" />
             </v-avatar>
             <v-flex xs-12 md-8>
-              <h1 class="font-weight-thin display-2 mb-5 ml-5 text-left">Henrique Futema</h1>
-              <h1 class="font-weight-thin display-1 mb-5 ml-5 text-left">henrique.futema01@gmail.com</h1>
+              <h1 class="font-weight-thin display-2 mb-5 ml-5 text-left">{{getDetailsUser.name}}</h1>
+              <h1 class="font-weight-thin display-1 mb-5 ml-5 text-left">{{getDetailsUser.email}}</h1>
             </v-flex>
             <v-flex>
               <v-btn color="red darken-1">Alterar Perfil</v-btn>
@@ -58,7 +58,13 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+
+export default {
+  computed: {
+    ...mapGetters(["getDetailsUser"])
+  }
+};
 </script>
 
 <style>
