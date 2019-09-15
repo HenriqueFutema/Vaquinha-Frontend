@@ -24,6 +24,9 @@
               <v-col cols="12">
                 <v-text-field label="HashTags" outlined required color="#F3B61F" rounded autofocus></v-text-field>
               </v-col>
+              <v-col cols="12">
+                <v-file-input show-size counter multiple label="Foto do Projeto" outlined></v-file-input>
+              </v-col>
 
               <v-col cols="12">
                 <v-btn elevation="10" color="success">Criar</v-btn>
