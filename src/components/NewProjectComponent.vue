@@ -3,7 +3,19 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+
+export default {
+  computed: {
+    ...mapGetters(["getIsLogged"])
+  },
+
+  created: function() {
+    if (!this.getIsLogged) {
+      return this.$router.push("/signin");
+    }
+  }
+};
 </script>
 
 <style>
