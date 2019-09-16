@@ -14,18 +14,19 @@
                   color="#F3B61F"
                   rounded
                   autofocus
+                  v-model="nameProject"
                 ></v-text-field>
               </v-col>
 
               <v-col cols="12">
-                <v-textarea outlined name="input-7-4" label="Descrição" value color="#F3B61F"></v-textarea>
+                <v-textarea v-model="descriptionProject" outlined name="input-7-4" label="Descrição" value color="#F3B61F"></v-textarea>
               </v-col>
 
               <v-col cols="12">
-                <v-text-field label="HashTags" outlined required color="#F3B61F" rounded autofocus></v-text-field>
+                <v-text-field v-model="hashtags" label="HashTags" outlined required color="#F3B61F" rounded autofocus></v-text-field>
               </v-col>
               <v-col cols="12">
-                <v-file-input show-size counter multiple label="Foto do Projeto" outlined></v-file-input>
+                <v-file-input v-model="image" show-size counter multiple label="Foto do Projeto" outlined></v-file-input>
               </v-col>
 
               <v-col cols="12">
@@ -46,6 +47,15 @@ export default {
   computed: {
     ...mapGetters(["getIsLogged"])
   },
+
+  data: () =>({
+
+    nameProject: '',
+    descriptionProject: '',
+    hashtags: '',
+    image: null
+
+  }),
 
   created: function() {
     if (!this.getIsLogged) {
