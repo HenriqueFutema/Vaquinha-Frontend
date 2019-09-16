@@ -65,10 +65,11 @@
 
 <script>
 import { mapGetters } from "vuex";
+import api from "@/services/api";
 
 export default {
   computed: {
-    ...mapGetters(["getIsLogged"])
+    ...mapGetters(["getIsLogged", "getTokenUser"])
   },
 
   data: () => ({
@@ -86,7 +87,20 @@ export default {
 
   methods: {
     handleSubmit: async function() {
-      console.log(this.image);
+      const { nameProject, descriptionProject, hashtags, image } = this;
+
+      const data = new FormData();
+
+      data.append("nameProject", nameProject);
+      data.append("description", descriptionProject);
+      data.append("hashtags", hashtags);
+      data.append("image", image[0]);
+
+      const project = await api.post("projects/create", data, {
+        headers: { Authorization: "Bearer " + this.getTokenUser }
+      });
+
+      console.log(project, image);
     }
   }
 };
