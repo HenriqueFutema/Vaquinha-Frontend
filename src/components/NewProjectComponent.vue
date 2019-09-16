@@ -100,7 +100,10 @@ export default {
         headers: { Authorization: "Bearer " + this.getTokenUser }
       });
 
-      console.log(project, image);
+      this.nameProject = "";
+      this.descriptionProject = "";
+      this.hashtags = "";
+      this.image = null;
     }
   }
 };
