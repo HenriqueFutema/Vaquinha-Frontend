@@ -5,7 +5,7 @@
         <v-card class="px-5 py-3">
           <v-card-title>
             <v-avatar size="150">
-              <img src="https://vuetifyjs.com/apple-touch-icon-180x180.png" alt="avatar" />
+              <v-img :src="this.img" alt="avatar" />
             </v-avatar>
             <v-flex xs-12 md-8>
               <h1 class="font-weight-thin display-2 mb-5 ml-5 text-left">{{getDetailsUser.name}}</h1>
@@ -63,6 +63,19 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters(["getDetailsUser"])
+  },
+
+  data: () => ({
+    img: null
+  }),
+
+  created: function() {
+    if (this.getDetailsUser.image.length === 0) {
+      this.img = "https://vuetifyjs.com/apple-touch-icon-180x180.png";
+    } else {
+      this.img = this.getDetailsUser.image[0];
+    }
+    console.log(this.getDetailsUser.image);
   }
 };
 </script>

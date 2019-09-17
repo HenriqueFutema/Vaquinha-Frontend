@@ -48,7 +48,8 @@ export default new Vuex.Store({
             state.tokenUser = data.token;
             state.detailsUser = {
                 email: data.user.email,
-                name: data.user.name
+                name: data.user.name,
+                image: data.user.image
             };
             state.isLogged = true;
         },
