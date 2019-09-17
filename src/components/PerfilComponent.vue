@@ -54,13 +54,19 @@
         </v-card>
       </v-flex>
     </v-layout>
+    <ModalImage />
   </v-container>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import ModalImage from "./ModalImageComponent";
 
 export default {
+  components: {
+    ModalImage
+  },
+
   computed: {
     ...mapGetters(["getDetailsUser"])
   },
