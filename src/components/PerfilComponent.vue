@@ -12,7 +12,7 @@
               <h1 class="font-weight-thin display-1 mb-5 ml-5 text-left">{{getDetailsUser.email}}</h1>
             </v-flex>
             <v-flex>
-              <v-btn color="red darken-1">Alterar Perfil</v-btn>
+              <v-btn color="red darken-1" @click="onShowModal">Alterar Perfil</v-btn>
             </v-flex>
           </v-card-title>
         </v-card>
@@ -54,7 +54,7 @@
         </v-card>
       </v-flex>
     </v-layout>
-    <ModalImage />
+    <ModalImage v-if="show" :closeModal="onCloseModal" />
   </v-container>
 </template>
 
@@ -72,7 +72,8 @@ export default {
   },
 
   data: () => ({
-    img: null
+    img: null,
+    show: false
   }),
 
   created: function() {
@@ -82,6 +83,15 @@ export default {
       this.img = this.getDetailsUser.image[0];
     }
     console.log(this.getDetailsUser.image);
+  },
+
+  methods: {
+    onShowModal: function() {
+      this.show = true;
+    },
+    onCloseModal: function() {
+      this.show = false;
+    }
   }
 };
 </script>

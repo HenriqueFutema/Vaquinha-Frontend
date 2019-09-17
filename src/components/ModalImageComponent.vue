@@ -38,7 +38,12 @@
 <script>
 import api from "../services/api";
 import { mapGetters } from "vuex";
+
 export default {
+  props: {
+    closeModal: Function
+  },
+
   computed: {
     ...mapGetters(["getIdUser", "getTokenUser"])
   },
