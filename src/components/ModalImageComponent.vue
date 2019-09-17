@@ -10,23 +10,22 @@
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex xs12 md12>
-                  <v-text-field label="Nome do Time" required v-model="name"></v-text-field>
-
-                  <v-textarea
-                    outline
-                    name="input-7-4"
-                    label="Detalhes da vaga"
-                    v-model="description"
-                  ></v-textarea>
+                  <v-file-input
+                    v-model="image"
+                    show-size
+                    counter
+                    multiple
+                    label="Foto do Projeto"
+                    outlined
+                  ></v-file-input>
                 </v-flex>
               </v-layout>
             </v-container>
-            <small class="red--text">*Preencher todos os campos</small>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="dark" text @click="closeModal">Fechar</v-btn>
-            <v-btn color="green" text type="submit">Enviar</v-btn>
+            <v-btn color="green" text type="submit">Atualizar</v-btn>
           </v-card-actions>
         </v-form>
       </v-card>
@@ -48,10 +47,24 @@ export default {
     ...mapGetters(["getIdUser", "getTokenUser"])
   },
   data: () => ({
-    name: "",
-    description: "",
+    image: null,
     dialog: true
-  })
+  }),
+
+  methods: {
+    handleSubmit: async function() {
+      const data = new FormData();
+
+      data.append("image", this.image[0]);
+
+      const avatar = await api.post(`avatar/${this.getIdUser}`, data, {
+        headers: { Authorization: "Bearer " + this.getTokenUser }
+      });
+
+      console.log(avatar);
+      console.log(this.image);
+    }
+  }
 };
 </script>
 

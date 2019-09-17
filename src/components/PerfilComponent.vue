@@ -60,6 +60,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+
 import ModalImage from "./ModalImageComponent";
 
 export default {
@@ -82,7 +83,7 @@ export default {
     } else {
       this.img = this.getDetailsUser.image[0];
     }
-    console.log(this.getDetailsUser.image);
+    console.log(this.getDetailsUser.image.length);
   },
 
   methods: {

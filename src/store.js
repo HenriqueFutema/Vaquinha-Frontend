@@ -39,6 +39,10 @@ export default new Vuex.Store({
 
         getTokenUser: state => {
             return state.tokenUser;
+        },
+
+        getIdUser: state => {
+            return state.idUser
         }
     },
 
