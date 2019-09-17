@@ -81,9 +81,10 @@ export default {
     if (this.getDetailsUser.image.length === 0) {
       this.img = "https://vuetifyjs.com/apple-touch-icon-180x180.png";
     } else {
-      this.img = this.getDetailsUser.image[0];
+      const avatar = this.getDetailsUser.image[0];
+      this.img = `http://localhost:3333/files/${avatar}`;
     }
-    console.log(this.getDetailsUser.image.length);
+    console.log(this.getDetailsUser.image);
   },
 
   methods: {

@@ -62,7 +62,7 @@ export default {
       });
 
       console.log(avatar);
-      console.log(this.image);
+      console.log(this.image[0]);
     }
   }
 };
