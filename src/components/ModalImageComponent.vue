@@ -61,8 +61,7 @@ export default {
         headers: { Authorization: "Bearer " + this.getTokenUser }
       });
 
-      console.log(avatar);
-      console.log(this.image[0]);
+      this.closeModal();
     }
   }
 };
