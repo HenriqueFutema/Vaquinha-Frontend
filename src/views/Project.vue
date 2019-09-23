@@ -138,14 +138,13 @@ export default {
       type: String
     }
   },
-  mounted: function() {
-    const projects = api.get("/projects");
-    for (var i = 0; i < cards.length; i++) {
-      if (projects.data.docs[i]._id == this.id) {
-        this.card = projects.data.docs[i];
-        this.card.por = (this.card.at / this.card.tot) * 100;
-      }
-    }
+  created: async function() {
+    const currentUrl = window.location.href.split("/");
+    const url = currentUrl[currentUrl.length - 1];
+
+    console.log(url);
+
+    //const projects = await api.get("/projects");
   }
 };
 </script>

@@ -30,7 +30,7 @@
             </v-img>
 
             <v-card-actions>
-              <v-btn to="/card" text>Ver Projeto</v-btn>
+              <v-btn :to="`/project/${card._id}`" text>Ver Projeto</v-btn>
               <div class="flex-grow-1"></div>
 
               <v-btn icon>
