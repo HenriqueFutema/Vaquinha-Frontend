@@ -69,7 +69,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["getDetailsUser"])
+    ...mapGetters(["getDetailsUser", "getTokenUser"])
   },
 
   data: () => ({

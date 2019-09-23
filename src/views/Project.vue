@@ -121,7 +121,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import api from "@/services/api";
 import axios from "axios";
 export default {
@@ -133,6 +133,11 @@ export default {
       cards: []
     };
   },
+
+  computed: {
+    ...mapGetters(["getTokenUser"])
+  },
+
   props: {
     id: {
       type: String
@@ -140,11 +145,19 @@ export default {
   },
   created: async function() {
     const currentUrl = window.location.href.split("/");
-    const url = currentUrl[currentUrl.length - 1];
+    const idProject = currentUrl[currentUrl.length - 1];
 
-    console.log(url);
+    console.log(this.getTokenUser);
 
-    //const projects = await api.get("/projects");
+    const project = await api.get(
+      `/projects/${idProject}`,
+
+      {
+        headers: { Authorization: "Bearer " + this.getTokenUser }
+      }
+    );
+
+    console.log(project);
   }
 };
 </script>
