@@ -62,7 +62,7 @@
                         color="#F3B61F"
                         rounded
                         autofocus
-                        v-model="title"
+                        v-model="nameProject"
                       ></v-text-field>
                     </v-col>
 
@@ -100,7 +100,7 @@
                 </v-col>
 
                 <v-col cols="12">
-                  <v-combobox v-model="country" :items="countries" label="Selecione o país"></v-combobox>
+                  <v-combobox v-model="tags.local" :items="countries" label="Selecione o país"></v-combobox>
                 </v-col>
 
                 <v-col cols="12">
@@ -143,7 +143,6 @@ export default {
   },
   data: () => ({
     dialog: false,
-    country: "",
     countries: [
       "AF",
       "AL",
@@ -399,7 +398,7 @@ export default {
     DiaInit: Iday,
     doadores: 0,
     description: "",
-    title: "",
+    nameProject: "",
     plans: [{ title: "", desc: "", val: 0 }],
     tags: { tipo: "", local: "" },
     images: []
@@ -416,7 +415,7 @@ export default {
         DiaInit,
         VAtual,
         VFinal,
-        title,
+        nameProject,
         description,
         plans,
         tags,
@@ -427,14 +426,18 @@ export default {
       data.append("DiaInit", DiaInit);
       data.append("VAtual", VAtual);
       data.append("VFinal", VFinal);
-      data.append("plans", plans);
-      data.append("title", title);
+      //data.append("plans", plans);
+      data.append("nameProject", nameProject);
       data.append("description", description);
       data.append("tags", tags);
-      data.append("images", images[0]);
+      data.append("image", images[0]);
       const project = await api.post("projects/create", data, {
         headers: { Authorization: "Bearer " + this.getTokenUser }
       });
+
+      console.log(project);
+      console.log(images[0]);
+
       this.title = "";
       this.description = "";
       this.tags = "";
