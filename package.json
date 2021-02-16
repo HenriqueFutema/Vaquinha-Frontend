@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@mdi/js": "^4.2.95",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "sweetalert": "^2.1.2",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
